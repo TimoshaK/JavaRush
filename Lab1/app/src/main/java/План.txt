@@ -22,10 +22,11 @@ ROADMAP (порядок разработки)
 ----------------------------
 
 PHASE 1 — Core (без файлов)
-[ ] Domain entities (Component, SpecLine, ComponentType)
-[ ] Domain exceptions
-[ ] Ports (Repository interfaces, StorageGateway)
-[ ] Use cases (Create, Open, Add, Delete, Restore, Print, Truncate)
+
+[XXXX] Domain entities (Component, SpecLine, ComponentType)
+[XXXXX] Domain exceptions
+[XXXXX] Ports (Repository interfaces, StorageGateway)
+[XXXXX] Use cases (Create, Open, Add, Delete, Restore, Print, Truncate)
 
 Ответственный: ___________
 
