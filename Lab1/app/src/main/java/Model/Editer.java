@@ -17,5 +17,5 @@ public class Editer // implements IEditer
     Должен сохранять объект IReader
     Можно было бы потом объеденить Saver с Reader.
      */
-    private ISaver Saver;
+    private ISaver Saver;//+++++++
 }
