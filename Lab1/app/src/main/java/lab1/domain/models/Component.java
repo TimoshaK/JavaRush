@@ -1,4 +1,4 @@
-package lab.domain.models;
+package lab1.domain.models;
 
 public class Component {
     private String name;

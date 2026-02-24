@@ -1,4 +1,4 @@
-package lab.domain.exceptions;
+package lab1.domain.exceptions;
 
 public class DuplicateComponentException extends DomainException {
     public DuplicateComponentException(String name) {

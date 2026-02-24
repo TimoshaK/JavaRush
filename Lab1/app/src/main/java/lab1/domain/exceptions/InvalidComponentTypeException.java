@@ -1,4 +1,4 @@
-package lab.domain.exceptions;
+package lab1.domain.exceptions;
 
 public class InvalidComponentTypeException extends DomainException {
     public InvalidComponentTypeException(String message) {

@@ -1,4 +1,4 @@
-package lab.domain.models;
+package lab1.domain.models;
 
 public class SpecLine {
     private Component component;
