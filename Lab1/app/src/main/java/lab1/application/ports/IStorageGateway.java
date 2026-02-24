@@ -1,4 +1,4 @@
-package lab.application.ports;
+package lab1.application.ports;
 
 public interface IStorageGateway {
     void create(String prdFile, String prsFile, int nameLength);

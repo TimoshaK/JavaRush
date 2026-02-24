@@ -1,6 +1,6 @@
-package lab.application.ports;
+package lab1.application.ports;
 
-import lab.domain.models.Component;
+import lab1.domain.models.Component;
 import java.util.List;
 import java.util.Optional;
 

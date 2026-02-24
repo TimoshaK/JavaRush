@@ -1,7 +1,7 @@
-package lab.application.ports;
+package lab1.application.ports;
 
-import lab.domain.models.Component;
-import lab.domain.models.SpecLine;
+import lab1.domain.models.Component;
+import lab1.domain.models.SpecLine;
 import java.util.List;
 
 public interface ISpecRepository {
