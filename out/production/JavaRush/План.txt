@@ -1,0 +1,137 @@
+PROJECT: Multilinked Structures (.prd / .prs)
+
+GOAL
+-----
+Реализовать систему хранения многосвязной структуры:
+- Список компонентов (.prd)
+- Список спецификаций (.prs)
+- Консольное приложение (задание 1)
+- Оконное приложение (задание 2)
+
+ARCHITECTURE
+------------
+Слои:
+1. domain          — сущности и правила
+2. application     — use cases (команды)
+3. infrastructure  — бинарные файлы и репозитории
+4. adapters        — CLI / GUI
+
+Ни один слой не должен зависеть от внешнего (зависимости направлены внутрь).
+
+ROADMAP (порядок разработки)
+----------------------------
+
+PHASE 1 — Core (без файлов)
+
+[XXXX] Domain entities (Component, SpecLine, ComponentType)
+[XXXXX] Domain exceptions
+[XXXXX] Ports (Repository interfaces, StorageGateway)
+[XXXXX] Use cases (Create, Open, Add, Delete, Restore, Print, Truncate)
+
+Ответственный: ___________
+
+PHASE 2 — Binary storage
+[ ] Реализовать BinaryIO (read/write int, short, byte, string)
+[ ] Реализовать структуру .prd
+[ ] Реализовать структуру .prs
+[ ] Реализовать BinaryComponentRepository
+[ ] Реализовать BinarySpecRepository
+[ ] Реализовать StorageGateway
+[ ] Загрузка индекса при Open
+
+Ответственный: ___________
+
+PHASE 3 — Business rules
+[ ] Проверка уникальности имени
+[ ] Проверка ссылок при удалении
+[ ] Восстановление алфавитного порядка
+[ ] Реализация Truncate (компактация)
+
+Ответственный: ___________
+
+PHASE 4 — CLI completion
+[ ] Реальный парсер команд
+[ ] Обработка ошибок
+[ ] Форматированный Print
+
+Ответственный: ___________
+
+PHASE 5 — GUI
+[ ] Форма списка компонентов
+[ ] Форма спецификации
+[ ] Интеграция с use cases
+
+Ответственный: ___________
+
+GIT ПРАВИЛА ДЛЯ ЛЮДЕЙ
+---------
+
+ЮРА, ДЛЯ ТЕБЯ ЕСЛИ ТЫ ХУЕВЕРТИШЬ, СДЕЛАЙ ОТДЕЛЬНУЮ ВЕТКУ, ПОЖАЛУЙСТА. Когда согласуем, то норм.
+
+Branch naming:
+feature/<name>
+
+Types:
+feat    — новая функциональность
+fix     — исправление ошибки
+ref     — рефакторинг
+test    — тесты
+docs    — документация
+
+Examples:
+feat: add BinaryIO reader
+fix: correct next offset in prd
+ref: extract truncate logic
+
+Pull Request Rules:
+- Не пушить в main напрямую
+- Один PR = одна логическая задача
+- Перед merge проект должен компилироваться
+
+RESPONSIBILITY MATRIX
+---------------------
+
+Domain:
+Infrastructure:
+CLI:
+GUI:
+Testing:
+Documentation:
+
+FOLDER STRUCTURE
+----------------
+
+src/
+  domain/
+  application/
+  infrastructure/
+  adapters/
+
+DATA FILES
+----------
+*.prd — components
+*.prs — specifications
+
+IMPORTANT RULES
+---------------
+
+- Деталь не может иметь спецификацию
+- Нельзя удалить компонент, если на него есть ссылки
+- Удаление логическое (бит = -1)
+- Truncate делает физическую очистку
+- Все указатели — offset от начала файла
+- Значение -1 = null pointer
+
+TEST CHECKLIST
+--------------
+
+[ ] Create + Open
+[ ] Add component
+[ ] Add spec item
+[ ] Delete component without references
+[ ] Delete component with references (error)
+[ ] Restore
+[ ] Truncate
+[ ] Dump check in hex editor
+
+END
